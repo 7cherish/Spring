@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DemoDaoImpl implements DemoDao {
 
-		@Autowired
-		SqlSessionTemplate sqlSession;
+	/*
+	 * DB관련 설정 후 주석 제거할 것이다.
+	 * @Autowired SqlSessionTemplate sqlSession;
+	 */
 }
