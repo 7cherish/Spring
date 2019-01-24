@@ -26,7 +26,15 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<!-- contextConfigLocation : 설정파일 위치 -->
-			<!-- root-Context > servlet-context -->
+			<!-- 스프링은 우리가 만든 클래스들을 빈으로 만들어 프로그램을 관리한다. -->
+			<!-- 빈은 프레임워크에서 관리하는 자바객체이다. 만들어놓고 등록만해주면 알아서 해준다. -->
+			<!-- 빈을 만들어 관리하는 스코프가 2개 있다.
+			1. root-Context : 
+							프로그램당 1개. 프로그램에서 전체적으로 쓸 수 있는 것을 루트로 만든다. 
+							루트는 데이터베이스 관련 빈들을 루트컨텍스트에 만들고, 
+							서블릿 안에서 해결해야 하는 것들은 servlet-context안에서 비교분석하겠다는 뜻이다. 
+			2. servlet-context : 프로그램당 여러 개 -->
+			<!-- root-context 가 더 큰 기능 servlet-context -->
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>

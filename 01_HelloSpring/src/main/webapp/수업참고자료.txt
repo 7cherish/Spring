@@ -1,2 +1,124 @@
 -------------------------------------------------------------------------------------------
+스프링 FrameWork의 특징
 -------------------------------------------------------------------------------------------
+- IOC (Inversion Of Control) 제어의 역전
+	개발자가 직접 구현했던 것들을 프레임워크로 가져갔다.
+	그만큼 개발자가 할 일이 없다. 
+	인수인계가 용이하다.
+
+- DI (Dependency Injection) 의존주입
+	멤버 컨트롤러를 하나 만들었는데 일련의 DB 기로에서의 업무로직을 처리하기 위해서 멤버 서비스라는 객체가 필요했다. 
+	이제는 멤버서비스 = new 멤버서비스 이렇게 하지 않고, 
+	
+	멤버서비스를 필드로서 선언만 할 것이다. 
+	이걸 프레임워크쪽에서 자동으로 넣어준다. 
+	이것을 DI라고 한다. 
+	
+	멤버컨트롤러는 멤버 서비스 없이는 아무 일도 못한다. 
+	업무로직을 멤버서비스에 요청하지 못하기 때문에. 
+	멤버서비스는 멤버컨트롤러에 대해 의존이다.
+	
+	그 의존을 주입해주는 것을 프레임워크쪽에서 한다.
+	제어가 역전된거다. 
+	
+	멤버서비스 멤버서비스타입의 m이란 변수에 new 멤버서비스해서 객체를 만들어 넣었는데 이제는 그럴 필요가 없다.
+
+	IOC와 DI는 따라 다니는 개념이다. 
+	같은 맥락에서 이해하면 좋다.
+
+- AOP (Aspect Oriented Programming) 관점지향프로그래밍
+	공통된 업무들을 별도로 빼서 처리하는 것이다. 
+	서버쪽에 기록을 남기는 작업을 별도로 관리한다.
+
+* IOC, DI, AOP 는 필수로 알고 있어야 한다.
+
+- POJO (Plain Old Java Object) 평범하고 늙은 자바 객체 <-> ejb 
+	ejb는 예전 기업용 프레임워크이다. (현재에도 씀) 
+	ejb에서는 객체들은 상속을 받고 구현을 하고... 기능이 많은 대신 객체 하나 쓰기를 까다롭다.
+	
+	POJO는 ejb와 달리 우리가 편하고 쉽게 알 수 있는 자바 객체이다.
+	
+- PSA (Portable Service Abstraction) 추상화된 제어
+	예를 들면 JDK에도 로깅을 지원하는 프레임워크가 있다. 
+	당신이 뭘 사용하던지간에 log4j를 사용하든 다른 로깅프레임워크를 사용하든 
+	이것을 상위레벨에서 제어할 수 있다는 것이다.
+
+-------------------------------------------------------------------------------------------
+pom.xml (프로젝트 하위)
+-------------------------------------------------------------------------------------------
+Maven Project는 pom.xml이 가장 핵심적인 파일이다. 모든 것이 시작된다.
+모든 의존을 관리하기 때문에 중요하다.
+수정돼서 저장될때마다 바로 Web에 접속에서 다운로드 받는다.
+
+<!-- 
+	우리가 만든 3레벨의 패키지가 나누어져 기록되어 있다.
+	artifactId가 ContextPath로 사용되고 있다.
+-->
+
+<groupId>com.kh</groupId>
+<artifactId>spring</artifactId>
+
+<!-- properties : 버전정보를 태그명으로 저장해서 다른 소스에서 참조한다. -->
+<properties>
+	<java-version>1.8</java-version>
+	<!-- 무턱대고 버전을 올리면 다른 의존이랑 깨지기 때문에 테스트를 마친 5.0.6 버전을 사용하겠다. -->
+	<org.springframework-version>5.0.6.RELEASE</org.springframework-version>
+	<org.aspectj-version>1.6.10</org.aspectj-version>
+	<org.slf4j-version>1.6.6</org.slf4j-version>
+</properties>
+
+
+
+<dependencies>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${org.springframework-version}</version>
+		<exclusions>
+			<!-- Exclude Commons Logging in favor of SLF4j -->
+			<exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			 </exclusion>
+		</exclusions>
+	</dependency>
+</dependencies>
+
+${org.springframework-version} : properties에 적어준 <org.springframework-version> 를 태그명으로 저장한 것.
+dev/maven/repository 에 들어가보자
+dependencies 태그 밑의 경로를 따라가보면 다운로드 받은 것이 들어있다.
+org.springframework/spring-context/${org.springframework-version}
+
+
+Ctrl + Shift + L 누르면 Quick Text Search 가 열린다.
+workspace 전체를 대상으로 검색한다.
+검색하고자 하는 키워드를 입력해서 필요한 것을 찾으면 된다.
+
+
+ojdbc6는 중앙저장소(공식저장소)에 있는 것을 쓰지 못한다.
+그래서 별도로 사설저장소를 등록해줘야한다.
+<!-- #1.1 사설저장소 등록 -->
+<repositories>
+	<repository>
+		<id>datanucleus-repo</id>
+		<url>http://www.datanucleus.org/downloads/maven2/</url>
+	</repository>
+</repositories>
+
+properties 태그가 끝나는 곳에 작성한다.
+xml에 태그들이 위치하는 순서가 있기 때문에 잘 지켜줘야 한다.
+
+사설저장소도 막히면 lib밑에 필요한 jar파일을 직접 넣어준다.
+
+	
+-------------------------------------------------------------------------------------------
+web.xml (WEB-INF 하위)
+-------------------------------------------------------------------------------------------
+<!-- 스프링은 우리가 만든 클래스들을 빈으로 만들어 프로그램을 관리한다. -->
+<!-- 빈은 프레임워크에서 관리하는 자바객체이다. 만들어놓고 등록만해주면 알아서 해준다. -->
+<!-- 빈을 만들어 관리하는 스코프가 2개 있다.
+1. root-Context : 
+				프로그램당 1개. 프로그램에서 전체적으로 쓸 수 있는 것을 루트로 만든다. 
+				루트는 데이터베이스 관련 빈들을 루트컨텍스트에 만들고, 
+				서블릿 안에서 해결해야 하는 것들은 servlet-context안에서 비교분석하겠다는 뜻이다. 
+2. servlet-context : 프로그램당 여러 개 -->

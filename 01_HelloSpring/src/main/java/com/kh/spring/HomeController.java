@@ -48,6 +48,8 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	// @RequestMapping에 적혀있는걸로 하위 메소드들을 연결시켜달라.
+	// 여기서는 하나의 Controller안에 메소드별로 요청을 처리하도록 되어있다.
+	// RequestMethod.GET으로 요청했을때 이 메소드를 매핑시켜달라는 뜻이다.
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		// 로깅용으로 콘솔에 찍는 것
@@ -59,10 +61,12 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		// 기존 request나 session의 setAttribute와 비슷하다.
-		// model이 대신 해주는거라고 생각하면 된다.
+		// 그것을 model이 대신 해주는거라고 생각하면 된다.
 		model.addAttribute("serverTime", formattedDate );
 		
 		// 따로 view단 처리가 없다.
+		// webapp/WEB-INF/views/home.jsp를 찾아간다.
+		// 이걸 view단으로 정한 것이다.
 		
 		return "home";
 	}

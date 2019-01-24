@@ -13,8 +13,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <!-- 사용자작성 css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Open+Sans:400,400i" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" />
-
 </head>
 <body>
 <div id="container">
@@ -22,6 +22,7 @@
 		<div id="header-container">
 			<h2>${param.pageTitle }</h2>
 		</div>
+		<!-- bootstrap 4.1 navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#">
 				<img src="${pageContext.request.contextPath }/resources/images/logo-spring.png" alt="스프링로고" width="50px" />
