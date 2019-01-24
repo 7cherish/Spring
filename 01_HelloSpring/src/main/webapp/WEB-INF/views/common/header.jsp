@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}">Home</a></li>
-			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/boardList.do">게시판</a></li>
+			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/demo/demo.do">데모</a></li>
 			    </ul>
 			 </div>
 		</nav>
