@@ -8,7 +8,8 @@ import com.kh.spring.demo.model.service.DemoService;
 @Controller
 public class DemoController {
 
-	// DI
+	// DI (의존주입)
+	// 필드로 생성
 	@Autowired
 	DemoService demoService;
 }

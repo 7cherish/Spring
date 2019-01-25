@@ -9,6 +9,7 @@ public class DemoDaoImpl implements DemoDao {
 
 	/*
 	 * DB관련 설정 후 주석 제거할 것이다.
-	 * @Autowired SqlSessionTemplate sqlSession;
+	 * @Autowired 
+	 * SqlSessionTemplate sqlSession;
 	 */
 }
