@@ -16,22 +16,25 @@
 		<th scope="col">이메일</th>
 		<th scope="col">성별</th>
 		<th scope="col">개발가능언어</th>
+		<th scope="col">삭제</th>
 	</tr>
 	<c:if test="${not empty list }">
-		<c:forEach var="dev" items="${list }">
+		<c:forEach var="dev" items="${list }" varStatus="vs">
 			<tr>
 				<td>${dev.devNo}</td>
 				<td>${dev.devName}</td>
 				<td>${dev.devAge}</td>
 				<td>${dev.devEmail}</td>
-				<td>${dev.devGender}</td>
+				<td>${dev.devGender=="M"?"남":"여"}</td>
 				<td>
 					<c:forEach items="${dev.devLang}" var="lang" varStatus="vs">
                      	${lang}${!vs.last?",":""}  
                   	</c:forEach>
                	</td>
+               	<td>
+					<button type="button" class="btn btn-outline-light" onclick="deleteDev(${dev.devNo});">삭제</button>
+				</td>
 			</tr>
-
 		</c:forEach>
 	</c:if>
 	<c:if test="${empty list}">
@@ -40,6 +43,10 @@
 		</tr>
 	</c:if>
 </table>
-
+<script>
+	function deleteDev(no){
+		location.href="${pageContext.request.contextPath}/demo/deleteDev.do?no="+no;
+	}
+</script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

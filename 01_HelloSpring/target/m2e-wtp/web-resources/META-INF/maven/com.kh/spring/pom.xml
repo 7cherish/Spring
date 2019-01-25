@@ -163,6 +163,14 @@
 			<version>11.2.0.3</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>springloaded</artifactId>
+	        <version>1.2.8.RELEASE</version>
+	        <scope>provided</scope>
+	    </dependency>
+		
 	</dependencies>
     <build>
         <plugins>
