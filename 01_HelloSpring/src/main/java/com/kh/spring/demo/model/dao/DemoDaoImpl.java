@@ -1,15 +1,31 @@
 package com.kh.spring.demo.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.demo.model.vo.Dev;
+
 @Repository
 public class DemoDaoImpl implements DemoDao {
+	 
+	 @Autowired SqlSessionTemplate sqlSession;
+	 
+	 @Override
+	 public int insertDev(Dev dev) {
+		 int result = sqlSession.insert("demo.insertDev", dev);
+		 System.out.println("result@insertDev@DemoDaoImpl = " + result);
+		 
+		 return result;
+	 }
 
-	/*
-	 * DB관련 설정 후 주석 제거할 것이다.
-	 * @Autowired 
-	 * SqlSessionTemplate sqlSession;
-	 */
+	@Override
+	public List<Dev> selectDemoList() {
+		return sqlSession.selectList("demo.selectDemoList");
+	}
+	 
+	 
+	 
 }

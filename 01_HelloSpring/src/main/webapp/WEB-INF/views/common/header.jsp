@@ -34,6 +34,7 @@
 				<ul class="navbar-nav">
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}">Home</a></li>
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/demo/demo.do">데모</a></li>
+			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/demo/demoList.do">Dev목록</a></li>
 			    </ul>
 			 </div>
 		</nav>
