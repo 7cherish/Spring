@@ -139,4 +139,15 @@ public class DemoController {
 		return "demo/demoList";
 	}
 	
+	@RequestMapping(value="/demo/deleteDev.do", method=RequestMethod.GET)
+	public String deleteDev(Model model,
+							@RequestParam(value="devNo") int devNo) {
+		
+		demoService.deleteDev();
+		
+		System.out.println("deleteDev메소드가 요청되었습니다.");
+		
+		return "demo/demoList";
+	}
+	
 }

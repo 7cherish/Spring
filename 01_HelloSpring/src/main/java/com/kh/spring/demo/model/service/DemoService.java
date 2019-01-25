@@ -10,4 +10,6 @@ public interface DemoService {
 
 	List<Dev> selectDemoList();
 
+	void deleteDev();
+
 }
