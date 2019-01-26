@@ -5,6 +5,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<!-- 영속성프레임워크인 myBatis를 사용하는데 접속관련해서(sqlSession) 관리는 Mybatis가 아닌 프레임워크에서 빈으로 관리할 것이다. -->
 	<!-- #6.1. myBatis(JDBC)설정 연결 설정하기 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
@@ -22,6 +23,7 @@
 		<!-- 앞으로 생성할 모든 mapper파일을 한번에 읽어오도록하자. -->
 		<!-- 여기서 classpath는 target/classes를 의미한다.-->
 		<!-- src/main/resources 디렉토리에서 작성된 파일들은 classpath로 이동함.-->
+		<!-- mapper 디렉토리 밑에 경로가 어떻든 xml로 끝나는 모든 것이 다 mapper 라는 뜻. -->
 		<property name="mapperLocations" value="classpath*:mapper/**/*.xml"/>
 		
 		<!-- mybatis-config.xml파일 위치를 명시함. -->

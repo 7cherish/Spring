@@ -29,6 +29,7 @@
 			<th scope="col">개발언어</th>
 			<td>
 				 <c:forEach items="${dev.devLang }" var="lang" varStatus="vs" >
+				 <%-- devLang이 마지막이 아니면 , 마지막이면 공백 --%>
 				 	${lang }${!vs.last?",":""} 
 				 </c:forEach>
 			</td>

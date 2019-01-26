@@ -16,7 +16,7 @@
 		<th scope="col">이메일</th>
 		<th scope="col">성별</th>
 		<th scope="col">개발가능언어</th>
-		<th scope="col">삭제</th>
+		<th scope="col">수정 | 삭제</th>
 	</tr>
 	<c:if test="${not empty list }">
 		<c:forEach var="dev" items="${list }" varStatus="vs">
@@ -32,6 +32,7 @@
                   	</c:forEach>
                	</td>
                	<td>
+					<button type="button" class="btn btn-outline-light" onclick="updateDev(${dev.devNo});">수정</button>
 					<button type="button" class="btn btn-outline-light" onclick="deleteDev(${dev.devNo});">삭제</button>
 				</td>
 			</tr>
@@ -44,9 +45,16 @@
 	</c:if>
 </table>
 <script>
+	function updateDev(no){
+		location.href="${pageContext.request.contextPath}/demo/updateDev.do?no="+no;
+	}
 	function deleteDev(no){
 		location.href="${pageContext.request.contextPath}/demo/deleteDev.do?no="+no;
 	}
 </script>
-
+<style>
+th:last-of-type {
+	padding-left: 36px;
+}
+</style>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

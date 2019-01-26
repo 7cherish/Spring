@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 
+// TypeHandler<T> : 무엇에 대해서 변경해줄지 지정해준다. 
 public class StringArrayTypeHandler implements TypeHandler<String[]> {
 
 	@Override
@@ -44,7 +45,8 @@ public class StringArrayTypeHandler implements TypeHandler<String[]> {
 		
 		return strArr;
 	}
-
+	
+	// CallableStatement : 프로시저 요청했을때
 	@Override
 	public String[] getResult(CallableStatement cstmt, int columnIndex) throws SQLException {
 		String str = cstmt.getString(columnIndex);

@@ -5,6 +5,9 @@ import java.util.Arrays;
 
 public class Dev implements Serializable{
 	
+	// DB할때 char타입은 되도록 안 쓰는게 좋다.
+	// 나중에 형변환할때 다 스트링으로 들어가기 때문이다.
+	
     private static final long serialVersionUID = 1L;
     
 	private int devNo;

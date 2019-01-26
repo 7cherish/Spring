@@ -10,17 +10,25 @@
 		   #{devEmail},
 		   #{devGender},
 		   #{devLang, typeHandler=com.kh.spring.common.typehandler.StringArrayTypeHandler})	
+		   <!-- devLang은 String타입 배열이므로 문자열로 변경해주는 작업이 필요하다. typeHandler로 변경해줄 것이다. -->
 	</insert>
 	
+	<!-- 타입핸들러를 지정하기 위해 resultType이 아닌 resultMap으로 처리 -->
 	<select id="selectDemoList" resultMap="devMap">
 		select * from dev 
 		order by dev_no desc
 	</select>
+	<!-- 
+		resultMap 은 컬럼 하나 당 result 태그가 하나씩 매핑된다.
+		컬럼명과 똑같으면 생략할 수 있다.
+		dev_lang은 달라서 지정해줘야 한다.
+		property 는 필드명을 적어준다. 
+	 -->
 	<resultMap type="dev" id="devMap">
 		<result column="dev_lang" property="devLang" typeHandler="strArrTypeHandler" />
 	</resultMap>
 	
-	<delete id="deleteDev" parameterType="java.lang.String">
+	<delete id="deleteDev">
 	delete from dev
 	where dev_no = #{devNo}
 	</delete>
