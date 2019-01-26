@@ -88,9 +88,6 @@ public class DemoController {
 		
 		Dev dev = new Dev(0, devName, devAge, devEmail, devGender, devLang);
 		
-		System.out.println("demo2메소드가 요청되었습니다.");
-		System.out.println("dev@demo2()@DemoController = " + dev);
-		
 //		request.setAttribute("dev", dev);
 		model.addAttribute("dev", dev);
 		
@@ -122,9 +119,10 @@ public class DemoController {
 		
 		int result = demoService.insertDev(dev);
 		
+		System.out.println("insertDev메소드가 요청되었습니다.");
 		System.out.println(result > 0? "등록성공":"등록실패");
 		
-		return "redirect:/";
+		return "redirect:/demo/demoList.do";
 	}
 	
 	@RequestMapping("/demo/demoList.do")
@@ -139,11 +137,12 @@ public class DemoController {
 		return "demo/demoList";
 	}
 	
-	@RequestMapping("/demo/deleteDev.do")
+	@RequestMapping(value= "/demo/deleteDev.do", method= RequestMethod.GET)
 	public String deleteDev(String no) {
 
 		int result = demoService.deleteDev(no);
 		
+		System.out.println("deleteDev메소드가 요청되었습니다.");
 		System.out.println(result > 0? "삭제성공":"삭제실패");
 		
 		return "redirect:/demo/demoList.do";

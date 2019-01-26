@@ -23,4 +23,9 @@ public class DemoServiceImpl implements DemoService {
 	public List<Dev> selectDemoList() {
 		return demoDao.selectDemoList();
 	}
+
+	@Override
+	public int deleteDev(String no) {
+		return demoDao.deleteDev(no);
+	}
 }

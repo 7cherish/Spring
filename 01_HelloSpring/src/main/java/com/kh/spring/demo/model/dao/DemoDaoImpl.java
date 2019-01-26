@@ -25,6 +25,14 @@ public class DemoDaoImpl implements DemoDao {
 	public List<Dev> selectDemoList() {
 		return sqlSession.selectList("demo.selectDemoList");
 	}
+
+	@Override
+	public int deleteDev(String no) {
+		int result = sqlSession.delete("demo.deleteDev", no);
+		System.out.println("result@deleteDev@DemoDaoImpl = " + result);
+		
+		return result;
+	}
 	 
 	 
 	 
