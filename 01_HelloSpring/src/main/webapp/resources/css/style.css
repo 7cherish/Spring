@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
 
 /* body {font-family:"휴먼모음T";} */
-/* body {font-family: 'Open Sans', sans-serif;} */
-body {font-family: 'Noto Serif KR', serif;}
+/* body {font-family: 'Noto Serif KR', serif;} */
+body {font-family: 'Noto Sans KR', sans-serif;}
+/* body {font-family: 'Nanum Gothic', sans-serif;} */
 div, section, header, aside, footer {padding:10px;}
 
 /********** 전체컨테이너 **********/
