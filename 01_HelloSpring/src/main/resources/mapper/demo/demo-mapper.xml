@@ -32,4 +32,5 @@
 	delete from dev
 	where dev_no = #{devNo}
 	</delete>
+	
 </mapper>
