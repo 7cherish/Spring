@@ -139,4 +139,13 @@ public class DemoController {
 		return "demo/demoList";
 	}
 	
+	@RequestMapping("/demo/deleteDev.do")
+	public String deleteDev(String no) {
+
+		int result = demoService.deleteDev(no);
+		
+		System.out.println(result > 0? "삭제성공":"삭제실패");
+		
+		return "redirect:/demo/demoList.do";
+	}
 }
