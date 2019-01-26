@@ -28,13 +28,8 @@
 		<result column="dev_lang" property="devLang" typeHandler="strArrTypeHandler" />
 	</resultMap>
 	
-<<<<<<< HEAD
 	<delete id="deleteDev">
 	delete from dev
 	where dev_no = #{devNo}
-=======
-	<delete id="deleteDev" parameterType="int">
-	delete from spring where dev_no = #{devNo}
->>>>>>> 8329c54fb4bea34ecdff0fe34dabe928e0ebf8c2
 	</delete>
 </mapper>

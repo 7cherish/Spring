@@ -187,7 +187,6 @@ public class DemoController {
 		return "demo/demoList";
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/demo/deleteDev.do")
 	public String deleteDev(String no) {
 		// 업무로직
@@ -206,17 +205,6 @@ public class DemoController {
 		
 		return "";
 	}
-=======
-	@RequestMapping(value="/demo/deleteDev.do", method=RequestMethod.GET)
-	public String deleteDev(Model model,
-							@RequestParam(value="devNo") int devNo) {
-		
-		demoService.deleteDev();
-		
-		System.out.println("deleteDev메소드가 요청되었습니다.");
-		
-		return "demo/demoList";
-	}
+
 	
->>>>>>> 8329c54fb4bea34ecdff0fe34dabe928e0ebf8c2
 }
