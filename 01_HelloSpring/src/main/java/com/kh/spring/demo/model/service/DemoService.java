@@ -10,6 +10,10 @@ public interface DemoService {
 
 	List<Dev> selectDemoList();
 
+<<<<<<< HEAD
 	int deleteDev(String no);
+=======
+	void deleteDev();
+>>>>>>> 8329c54fb4bea34ecdff0fe34dabe928e0ebf8c2
 
 }
