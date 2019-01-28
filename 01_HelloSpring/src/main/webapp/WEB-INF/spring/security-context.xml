@@ -8,5 +8,22 @@
 	<!-- #7.2 패스워드 암호화 관련 빈등록 -->
 	<bean id="bcryptPasswordEncoder"
 		  class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-
+	
+	<!-- 
+	bcrypt 는 해시함수에서 진화됐다고 생각하면 된다.
+	해시함수는 단방향이다. 
+	사용자가 실제 입력한 pw가 해시 펑션에 의해서 암호화된 비밀번호로 바뀌는데
+	반대로는 안 된다고 했었다.
+	
+	해시함수의 목적은 검색속도를 빨리 하기 위해 만들어졌다. 인덱스화 하기 위해서.
+	자바 컬렉션 부분도 해시함수를 통해서 구현한 것이다.
+	HashSet, HashMap 등 Hash 들어간것은 내부적으로 해시 함수를 사용하고
+	그것을 참조해서 중복값을 찾아내게 만들어졌다.
+	
+	검색속도가 빠른 것이 단점이자 장점이다.
+	해킹하기 좋다.
+	그래서 만든 것이
+	1. salt : 1234 + 임의의 값을 더해서 (salt) 해시함수를 돌린다.
+	2. key strectching : 1234 암호화된걸 또 암호화하는 것.
+	-->
 </beans>
