@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<!-- 파라미터타입은 생략해도 알아서 유추한다. -->
+	<insert id="insertMember" parameterType="member">
+	insert into member
+	values(#{memberId}, 
+		   #{password},
+		   #{memberName},
+		   #{gender},
+		   #{age},
+		   #{email},
+		   #{phone},
+		   #{address},
+		   #{hobby, tyHandler=com.kh.spring.common.typeHandler.StringArrayTypeHandler},
+		   #{enrollDate}
+		   <!-- hobby는 String타입 배열이므로 문자열로 변경해주는 작업이 필요하다. typeHandler로 변경해줄 것이다. -->
+	</insert>
+</mapper>

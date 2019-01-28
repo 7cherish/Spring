@@ -48,6 +48,8 @@
  *
  */
 function validate(){
+	var $memberId = $("#memberId_");
+	var getMemberId = RegExp(/{4,}$/);
 	
 }
 </script>
