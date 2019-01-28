@@ -10,7 +10,10 @@ public class Member implements Serializable{
     */
    private static final long serialVersionUID = 1L;
    
-   //db 컬럼 (카멜케이싱?) = vo 필드 = form의 name값 
+   // 웹서버 프로그래밍 진행할 때 
+   // 1. DB 컬럼명 (mybatis에서 카멜케이싱 자동으로 바꿔주는 설정으로 대소문자 구분하지 않고 _ 써도 해결 가능하다.)
+   // 2. VO 필드명
+   // 3. form의 name값을 같게 한다.
    private String memberId;
    private String password;
    private String memberName;
