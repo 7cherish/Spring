@@ -398,7 +398,7 @@ public class DemoController {
 	 * RequestParam으로 지정한 것은 반드시 value가 있어야 한다.
 	 * required 속성의 기본값은 true이다.
 	 * false로 해야 value가 없어도 에러가 발생하지 않는다.
-	 * 
+	 
 	 * defaultValue : 값이 없다면 이것으로 대체
 	 * Spring에서는 HttpServletRequest 대신 Model을 많이 사용한다.
 	 * Model에 담아도 HttpServletRequest와 마찬가지로 EL로 접근할 수 있다.
@@ -424,10 +424,9 @@ public String demo2(Model model,
 }
 
 
-
 	 * value와 method 둘 다 배열이다.
 	 * method= RequestMethod.POST  POST만 받는다. URL로 접근하면 에러
-	 * 
+	 
 	 * Dev dev 커맨드 객체
 	 * 커맨드 패턴(Command pattern)이란 
 	 * 요청을 객체의 형태로 캡슐화하여 사용자가 보낸 요청을 나중에 이용할 수 있도록 
@@ -445,7 +444,22 @@ public String demo2(Model model,
 		return "redirect:/demo/demoList.do";
 	}
 
+@SessionAttributes(value= {"memberLoggedIn"})
+// memberLoggedIn 이라는 이름으로 모델에 세션속성으로 담으라는 뜻.
+// value={""} 문자열 배열로 여러 개가 올 수 있다.
 
+@RequestMapping("/member/memberLogout.do")
+public String logout(SessionStatus sessionStatus) {
+	// 기존에서처럼 session.SetAttribute() 사용하면 session.invalidate()으로 무효화시키면 된다.
+	// @SessionAttributes 사용하면 sessionStatus.setComplete()로 무효화한다.
+	// 둘 중 하나만 사용한다.
+	
+	if(!sessionStatus.isComplete()) {
+		sessionStatus.setComplete();
+	}
+	
+	return "redirect:/";
+}
 -------------------------------------------------------------------------------------------
 model.vo
 -------------------------------------------------------------------------------------------
