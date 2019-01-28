@@ -5,7 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
@@ -54,6 +57,16 @@ public class MemberController {
 		req.setAttribute("loc", loc);
 		req.setAttribute("msg", msg);
 
+		return "common/msg";
+		
+	}
+	
+	@RequestMapping(value="/member/memberLogin.do", method=RequestMethod.POST)
+	public String MemberLogin(@RequestParam String memberId,
+							  @RequestParam String password,
+							  Model model) {
+		// 아이디를 통해서 selectOne메소드 호출결과 Member 객체를 가져온다.
+		
 		return "common/msg";
 	}
 

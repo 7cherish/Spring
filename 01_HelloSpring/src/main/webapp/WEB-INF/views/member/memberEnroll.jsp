@@ -4,6 +4,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <fmt:requestEncoding value="UTF-8" />
+<style>
+div#enroll-container {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+div#enroll-container input, div#enroll-container select {
+	margin-bottom: 10px;
+}
+</style>
+<!-- 
+Bootstrap 폼태그 작성
+*	input[type=text, password, tel, number], select 는
+	=> .form-control 클래스 값이 필요하다.
+
+* 	input[type=checkbox, radio] 는
+	=> .form-check-input 클래스 값이 필요하다.
+	
+*	label
+	=> .form-check-label
+
+*	radio / checkbox 는 div.form-check.form-check-inline 으로 감싸야 한다.
+ -->
 <!-- '/'WEB-INF 에서 '/'는 webapp을 가리킨다. -->
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="회원등록" name="pageTitle" />
@@ -44,17 +68,7 @@
 	</form>
 </div>
 
-<style>
-div#enroll-container {
-	width: 400px;
-	margin: 0 auto;
-	text-align: center;
-}
 
-div#enroll-container input, div#enroll-container select {
-	margin-bottom: 10px;
-}
-</style>
 <script>
 /**
  * 아이디 최소 4자리
