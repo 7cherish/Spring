@@ -170,6 +170,23 @@
 	        <version>1.2.8.RELEASE</version>
 	        <scope>provided</scope>
 	    </dependency>
+	    
+	    <!-- #7. 스프링  security 프레임워크 의존 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.0.11.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.0.11.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.0.11.RELEASE</version>
+		</dependency>
 		
 	</dependencies>
     <build>
