@@ -33,12 +33,44 @@
 				<span class="navbar-toggler-icon"></span>
 		  	</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
+				<!-- 좌우정렬위해 .mr-auto추가 -->
+				<ul class="navbar-nav mr-auto">
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}">Home</a></li>
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/demo/demo.do">데모</a></li>
 			      <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/demo/demoList.do">Dev목록</a></li>
 			    </ul>
+			    <!-- 로그인,회원가입 버튼 -->
+				<!--https://getbootstrap.com/docs/4.1/components/buttons/#outline-buttons-->
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#loginModal">로그인</button>
+				&nbsp;
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='${pageContext.request.contextPath}/member/memberEnroll.do'">회원가입</button>
 			 </div>
 		</nav>
 	</header>
+	
+	<!-- 로그인모달 : https://getbootstrap.com/docs/4.1/components/modal/#live-demo -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">로그인</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <!--로그인폼 : https://getbootstrap.com/docs/4.1/components/forms/#overview -->
+          <form action="${pageContext.request.contextPath}/member/memberLogin.do" method="post">
+	      <div class="modal-body">
+			    <input type="text" class="form-control" name="memberId" placeholder="아이디" required>
+			    <br />
+			    <input type="password" class="form-control" name="password" placeholder="비밀번호" required>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="submit" class="btn btn-outline-success" >로그인</button>
+	        <button type="button" class="btn btn-outline-success" data-dismiss="modal">취소</button>
+	      </div>
+		  </form>
+	    </div>
+	  </div>
+	</div>
 	<section id="content">

@@ -53,7 +53,10 @@ import com.kh.spring.demo.model.vo.Dev;
 @Controller
 public class DemoController {
 
-	// DI (의존주입)
+	// DI (의존주입) : 스프링은 빈을 관리시, 기본적으로 싱클턴으로 처리한다.
+	// cf) 프로그램 돌아가면서 그 객체가 달랑 하나만 만들어지고 그걸 공유해서 쓰는 패턴이 싱클턴 패턴이다.
+	// 자기 빈으로 등록된 객체중에서 DemoService 타입으로 검색해서
+	// 실제 구현객체 demoServiceImpl을 demoService에 넣어준다. (참조 주소값 넣어준다는 얘기임)
 	// 필드로 생성
 	@Autowired
 	DemoService demoService;
