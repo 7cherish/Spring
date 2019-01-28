@@ -20,6 +20,7 @@
 	-->
 	<typeAliases>
    <typeAlias type="com.kh.spring.demo.model.vo.Dev" alias="dev"/>
+   <typeAlias type="com.kh.spring.member.model.vo.Model" alias="member"/>
    <typeAlias type="com.kh.spring.common.typehandler.StringArrayTypeHandler" alias="strArrTypeHandler"/>
    </typeAliases>
 	
