@@ -34,6 +34,11 @@
 - AOP (Aspect Oriented Programming) 관점지향프로그래밍
 	공통된 업무들을 별도로 빼서 처리하는 것이다. 
 	서버쪽에 기록을 남기는 작업을 별도로 관리한다.
+	
+	* cf) 생활코딩 설명
+	    AOP
+	    관점지향형 프로그램으로 사용자들이 트랜젝션 처리/로깅/예외 처리들의 로직을 공통으로 처리할 수 있는 기능을 지원함. 
+	    해당 기능을 잘 사용하면 비지니스로직와 기타 공통모듈이 섞이는 것을 방지하여 비지니스 로직에 집중할 수 있도록 합니다.
 
 * IOC, DI, AOP 는 필수로 알고 있어야 한다.
 
@@ -43,10 +48,22 @@
 	
 	POJO는 ejb와 달리 우리가 편하고 쉽게 알 수 있는 자바 객체이다.
 	
+	* cf) 생활코딩 설명
+	    POJO (Plain Object Java  Object)
+	    기본적으로 사용자가 만들어낸 객체를 의미함. 
+	    스프링은 사용자가 만들 객체들에 대해서도 라이프사이클 관리를 위임해서 수행하며, 이들의 조합으로 어플리케이션을 만들 수 있음.
+    
+	
 - PSA (Portable Service Abstraction) 추상화된 제어
 	예를 들면 JDK에도 로깅을 지원하는 프레임워크가 있다. 
 	당신이 뭘 사용하던지간에 log4j를 사용하든 다른 로깅프레임워크를 사용하든 
 	이것을 상위레벨에서 제어할 수 있다는 것이다.
+	
+    * cf) 생활코딩 설명
+	    PSA(Portable Service Abstraction)
+	    스프링은 다른 여러 모듈을 사용함에 있어서 별도의 추상화 레이어를 제공합니다. 
+	    예를 들어 JPA를 사용할 때에서 Spring JPA를 사용하여 추상화 하므로 
+	    실제 구현에 있어서 Hibernate를 사용하든 EclipseLink를 사용하든 사용자는 이 모듈의 의존 없이 프로그램에 집중할 수 있습니다.
 
 -------------------------------------------------------------------------------------------
 pom.xml (프로젝트 하위)
@@ -115,7 +132,14 @@ xml에 태그들이 위치하는 순서가 있기 때문에 잘 지켜줘야 한
 
 사설저장소도 막히면 lib밑에 필요한 jar파일을 직접 넣어준다.
 
-	
+Maven 이 관리하는 공식 저장소
+http://mvnrepository.com 
+
+여기서 검색한 jar파일이 실제로 사용 가능한지(신뢰할 수 있는지) 어디서 확인 가능하냐면,
+http://spring.io/projects/ 에서 확인 할 수 있다.
+GA(General Availity) 붙어 있는 버전이 안정적이다.
+
+
 -------------------------------------------------------------------------------------------
 web.xml (WEB-INF 하위)
 -------------------------------------------------------------------------------------------
@@ -126,7 +150,9 @@ web.xml (WEB-INF 하위)
 				프로그램당 1개. 
 				프로그램에서 전체적으로 쓸 수 있는 것을 루트로 만든다. 
 				루트는 데이터베이스 관련 빈들을 root-Context에 만들고, 
-				서블릿 안에서 해결해야 하는 것들은 servlet-context안에서 비교분석하겠다는 뜻이다. 
+				서블릿 안에서 해결해야 하는 것들은 servlet-context안에서 비교분석하겠다는 뜻이다.
+				
+				 
 2. servlet-context : 프로그램당 여러 개 가능하다. -->
 
 <!-- root-context 기능  >> servlet-context 기능 -->
@@ -135,11 +161,55 @@ web.xml (WEB-INF 하위)
 DB관련된 것들은 root에 만들어서 관리할 것이다.
 서블릿이 여러개가 된다고 해도 다 처리할 수 있도록. (#6 참고)
 
+<!-- #6. application컨텍스트 관련 설정 -->
+<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+		/WEB-INF/spring/root-context.xml
+		<!-- #7.1 Spring Security 설정파일 등록 -->
+		/WEB-INF/spring/security-context.xml
+	</param-value>
+</context-param>
+
+security-context.xml 파일은 new - Spring Bean Configuration File - security 만 체크해서 프로젝트 체크 후 생성한다.
+
+
+-------------------------------------------------------------------------------------------
+security-context.xml (WEB-INF/spring/ 하위)
+-------------------------------------------------------------------------------------------
+<!-- #7.2 패스워드 암호화 관련 빈등록 -->
+	<bean id="bcryptPasswordEncoder"
+		  class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+빈만 등록해준다.
+빈의 이름은 id속성값으로 등록할 수 있는데,
+안 쓰게 되면 클래스 이름(BCryptPasswordEncoder)을 소문자로 한 이름이 부여된다.
+
+
+bcrypt 는 해시함수에서 진화됐다고 생각하면 된다.
+해시함수는 단방향이다. 
+사용자가 실제 입력한 pw가 해시 펑션에 의해서 암호화된 비밀번호로 바뀌는데
+반대로는 안 된다고 했었다.
+
+해시함수의 목적은 검색속도를 빨리 하기 위해 만들어졌다. 인덱스화 하기 위해서.
+자바 컬렉션 부분도 해시함수를 통해서 구현한 것이다.
+HashSet, HashMap 등 Hash 들어간것은 내부적으로 해시 함수를 사용하고
+그것을 참조해서 중복값을 찾아내게 만들어졌다.
+
+검색속도가 빠른 것이 단점이자 장점이다.
+해킹하기 좋다.
+그래서 만든 것이
+1. salt : 1234 + 임의의 값을 더해서 (salt) 해시함수를 돌린다.
+2. key strectching : 1234 암호화된걸 또 암호화하는 것.
+
+		  
 -------------------------------------------------------------------------------------------
 servlet-context.xml (WEB-INF/spring/appServlet 하위)
 -------------------------------------------------------------------------------------------
 <annotation-driven />
 	mvc 관련한 어노테이션을 처리해준다.
+	annotation-driven 요소는 Spring Web MVC를 하기 위해 설정해야 하는 값들을 자동으로 로딩해준다. 
+	해당 설정 어노테이션은 @RequestMapping, @ModelAttribute, @SessionAttribute, @RequestParam 등이 있다.
 
 <resources mapping="/resources/**" location="/resources/" />
 	사용자 요청중에 wepapp(루트) 밑에 resources 밑에 뭐라고 요청하던지 resources 밑에 가서 요청을 처리한다. 
@@ -171,12 +241,12 @@ servlet-context.xml (WEB-INF/spring/appServlet 하위)
 	<beans:property name="prefix" value="/WEB-INF/views/" />
 	<beans:property name="suffix" value=".jsp" />
 </beans:bean>
+	* class는 클래스가 어디 위치해있는지만 알려준다. (매핑)
 	* InternalResourceViewResolver : View단을 처리한다.
 	
-	* class는 클래스가 어디 위치해있는지만 알려준다. (매핑)
-	<beans:property name="prefix" value="/WEB-INF/views/" />
-	<beans:property name="suffix" value=".jsp" />
-		* 이 설정으로 인해 Controller에서 return 파일명만 해줘도 된다.
+	* prefix문자열 + 컨트롤의 반환 문자열 + suffix문자열
+	* 이 설정으로 인해 Controller에서 return 파일명만 해줘도 된다.
+	
 	
 <context:component-scan base-package="com.kh.spring" />
 	* 스프링컨테이너에 의해 서버 켜질 때 자동 bean 등록
