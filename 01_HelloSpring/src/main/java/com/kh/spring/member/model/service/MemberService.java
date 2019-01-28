@@ -4,6 +4,8 @@ import com.kh.spring.member.model.vo.Member;
 
 public interface MemberService {
 
-   int insertMember(Member m);
-   
+	int insertMember(Member m);
+
+	Member selectOneMember(String memberId);
+
 }

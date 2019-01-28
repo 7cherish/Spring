@@ -7,15 +7,20 @@ import com.kh.spring.member.model.dao.MemberDao;
 import com.kh.spring.member.model.vo.Member;
 
 @Service
-public class MemberServiceImpl implements MemberService{
-   
-   @Autowired
-   MemberDao memberDao ;
+public class MemberServiceImpl implements MemberService {
 
-   @Override
-   public int insertMember(Member m) {
-      
-      
-      return memberDao.insertMember(m);
-   }
+	@Autowired
+	MemberDao memberDao;
+
+	@Override
+	public int insertMember(Member m) {
+
+		return memberDao.insertMember(m);
+	}
+
+	@Override
+	public Member selectOneMember(String memberId) {
+		
+		return memberDao.selectMember(memberId);
+	}
 }

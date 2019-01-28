@@ -15,5 +15,12 @@
       		 #{hobby, typeHandler=com.kh.spring.common.typehandler.StringArrayTypeHandler}, 
       		 default)
    </insert>
+   <resultMap type="member" id="memberMap">
+   		<result column="hobby" property="hobby" typeHandler="strArrTypeHandler"/>
+   </resultMap>
+   <select id="selectOneMember" parameterType="string" resultMap="memberMap">
+   		SELECT * FROM MEMBER
+   		WHERE MEMBERID = #{memberId}
+   </select>
    
 </mapper>
