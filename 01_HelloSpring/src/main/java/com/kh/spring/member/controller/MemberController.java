@@ -19,12 +19,21 @@ import com.kh.spring.member.model.vo.Member;
 
 @Controller
 @SessionAttributes(value= {"memberLoggedIn"})
-// memberLoggedIn이라는 이름으로 모델에 세션속성으로 담으라는 뜻.
+// memberLoggedIn 이라는 이름으로 모델에 세션속성으로 담으라는 뜻.
 // value={""} 문자열 배열로 여러 개가 올 수 있다.
 public class MemberController {
 
 	// 빈으로 등록되어 있다면 스프링이 자동으로 해줌.
 	// 등록되어 있지 않다면 서버가 켜지지 않는다.
+	
+	// DI (Dependency Injection. 의존주입)
+	// 컨트롤러에서는 Service 객체가 반드시 필요하다.
+	// 그때 얘를 자동으로 스프링쪽에 주입해달라고 심는 코드가 @Autowired 이다.
+	// @Autowired 가 붙게 되면 스프링 컨테이너는 자기 빈으로 등록된 객체 중에서 MemberService 타입으로 검색을 한다.
+	// 실제 구현 객체인 MemberServiceImpl 에 빈으로 만들어놓은 것을 memberService에 넣어준다.
+	
+	// 스프링은 빈을 관리시, 기본적으로 싱글턴으로 처리한다.
+	// 싱글턴 : 프로그램 구동 중 객체를 하나만 만들고 공유해서 쓰는 것. (경제적, 효율적)
 	@Autowired
 	MemberService memberService;
 

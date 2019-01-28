@@ -3,8 +3,8 @@
 <mapper namespace="member">
    <insert id="insertMember" parameterType="member">
    <!-- string 배열 dev를 문자열로 전환하는 작업 typehandler -->
-      insert into member 
-      values(#{memberId}, 
+      INSERT INTO MEMBER
+      VALUES(#{memberId}, 
       		 #{password}, 
       		 #{memberName}, 
       		 #{gender}, 
