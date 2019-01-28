@@ -338,6 +338,27 @@ DemoController
 	- SessionStatus : 세션관리객체
 	- java.util.Locale : 서버지역정보
 	
+	 * ModelAndView(2.0)
+	 * 	- Model 과 View 단 정보를 한 번에 다룬다.
+	 *	ModelAndView mav
+	 *	String view = "common/msg";
+	 	
+	 *	mav.addObject("변수 이름", "뷰로 보낼 데이터 값");
+		
+	 *	mav.setViewName("뷰의 경로");
+		
+	 *	return mav; // ModelAndView 객체를 반환한다.
+	  
+	 * ModelMap(2.0) : 일반 클래스
+	 * 	- Model 객체관리, View 단은 문자열로 리턴하는 형식이다.
+	 
+	 
+	 * Model(2.5) : 인터페이스
+	 * 	- Model 객체관리, View 단은 문자열로 리턴하는 형식이다.
+	 *	Model model
+	 *	model.addAttribute("변수이름", "변수에 넣을 데이터값");
+
+컨트롤러의 메소드를 핸들러라고도한다. 요청을 핸들링 한다고 해서.
 
 
 @Controller
@@ -460,7 +481,7 @@ bootstrap 부트스트랩
 
 	
 	
-- Bootstrap 폼태그 작성
+- Bootstrap 폼태그 작성시 유의할 점
 	* input[type=text, password, tel, number], select 는
 	=> .form-control 클래스 값이 필요하다.
 

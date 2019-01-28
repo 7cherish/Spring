@@ -77,6 +77,7 @@ public class MemberController {
 
 	}
 /*
+ 	// 컨트롤러의 메소드를 핸들러라고도 한다. 요청을 핸들링 한다고 해서.
 	@RequestMapping(value = "/member/memberLogin.do", method = RequestMethod.POST)
 	public String MemberLogin(@RequestParam String memberId, 
 							  @RequestParam String password, 
@@ -109,51 +110,15 @@ public class MemberController {
 			}
 		}
 
+		// model.addAttribute("변수이름", "변수에 넣을 데이터값");
+
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 
 		return view;
 	}
 */
-/*
-	@RequestMapping(value = "/member/memberLogin.do", method = RequestMethod.POST)
-	public String MemberLogin(@RequestParam String memberId, 
-			@RequestParam String password, 
-			Model model,
-			HttpSession session) {
-		// 아이디를 통해서 selectOne메소드 호출결과 Member 객체를 가져온다.
-		Member m = memberService.selectOneMember(memberId);
-		
-		System.out.println("m@MemberLogin@MemberController = " + m);
-		
-		// 2. 처리결과에 따라 view단 분기처리
-		String loc = "/";
-		String msg = "";
-		String view = "common/msg";
-		
-		// 로그인 처리
-		if (m == null) {
-			msg = "아이디가 존재하지 않습니다.";
-			loc = "/";
-		} else {
-			// 비밀번호 비교
-			if (bcryptPasswordEncoder.matches(password, m.getPassword())) {
-				// 비밀번호 일치했을시 세션 상태 유지
-				model.addAttribute("memberLoggedIn", m);
-				view = "redirect:/";
-				
-			} else {
-				msg = "비밀번호를 잘못 입력하셨습니다.";
-				loc = "/";
-			}
-		}
-		
-		model.addAttribute("loc", loc);
-		model.addAttribute("msg", msg);
-		
-		return view;
-	}
-*/	
+
 	
 	/**
 	 * ModelAndView(2.0)
@@ -168,9 +133,9 @@ public class MemberController {
 	 */
 	@RequestMapping(value = "/member/memberLogin.do", method = RequestMethod.POST)
 	public ModelAndView MemberLogin(@RequestParam String memberId, 
-			@RequestParam String password, 
-			ModelAndView mav,
-			HttpSession session) {
+									@RequestParam String password, 
+									ModelAndView mav,
+									HttpSession session) {
 		// 아이디를 통해서 selectOne메소드 호출결과 Member 객체를 가져온다.
 		Member m = memberService.selectOneMember(memberId);
 		
@@ -198,11 +163,11 @@ public class MemberController {
 			}
 		}
 		
-		mav.addObject("loc", loc);
-		mav.addObject("msg", msg);
-		mav.setViewName(view);
+		mav.addObject("loc", loc); // 뷰로 보낼 데이터 값
+		mav.addObject("msg", msg); // 뷰로 보낼 데이터 값
+		mav.setViewName(view); // 뷰의 이름
 		
-		return mav;
+		return mav; // ModelAndView 객체를 반환한다.
 	}
 	
 	@RequestMapping("/member/memberLogout.do")
