@@ -19,8 +19,7 @@
    		<result column="hobby" property="hobby" typeHandler="strArrTypeHandler"/>
    </resultMap>
    <select id="selectOneMember" parameterType="string" resultMap="memberMap">
-   		SELECT * FROM MEMBER
-   		WHERE MEMBERID = #{memberId}
+   		SELECT * FROM MEMBER WHERE MEMBERID = #{memberId}
    </select>
    
 </mapper>

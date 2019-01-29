@@ -92,12 +92,17 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav mr-auto">
 						<!-- 좌우정렬위해 .mr-auto추가  -->
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}">Home</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/demo/demo.do">데모</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/demo/demoList.do">Dev목록</a>
+						<li class="nav-item">
+							<a class="nav-link" href="${pageContext.request.contextPath}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="${pageContext.request.contextPath}/demo/demo.do">데모</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="${pageContext.request.contextPath}/demo/demoList.do">Dev목록</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="${pageContext.request.contextPath}/memo/memo.do">메모</a>
 						</li>
 					</ul>
 					<c:if test="${memberLoggedIn==null }">
@@ -111,7 +116,7 @@
 						</button>
 					</c:if>
 					<c:if test="${memberLoggedIn != null }">
-						<a href="#">${memberLoggedIn.memberName }</a> 님, 안녕하세요 &nbsp;
+						<a href="${pageContext.request.contextPath }/member/memberView.do?memberId=${memberLoggedIn.memberId}">${memberLoggedIn.memberName }</a> 님, 안녕하세요 &nbsp;
       					<button class="btn btn-outline-success" type="button"
 								onclick="location.href='${pageContext.request.contextPath}/member/memberLogout.do'">로그아웃
 						</button>
