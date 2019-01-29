@@ -11,18 +11,19 @@
 div#update-container{width:400px; margin:0 auto; text-align:center;}
 div#update-container input, div#update-container select {margin-bottom:10px;}
 </style>
+
 <div id="update-container">
 	<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdateEnd.do" method="post">
-		<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="memberId" id="memberId_" readonly required>
-		<input type="text" class="form-control" placeholder="이름" name="memberName" id="memberName" required>
-		<input type="number" class="form-control" placeholder="나이" name="age" id="age">
-		<input type="email" class="form-control" placeholder="이메일" name="email" id="email" required>
-		<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" maxlength="11" required>
-		<input type="text" class="form-control" placeholder="주소" name="address" id="address">
-		<select class="form-control" name="gender" required>
-		  <option value="" disabled selected>성별</option>
-		  <option value="M">남</option>
-		  <option value="F">여</option>
+		<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="memberId" id="memberId_" value="${m.memberId }" readonly required>
+		<input type="text" class="form-control" placeholder="이름" name="memberName" id="memberName" value="${m.memberName }" required>
+		<input type="number" class="form-control" placeholder="나이" name="age" id="age" value="${m.age }">
+		<input type="email" class="form-control" placeholder="이메일" name="email" id="email" value="${m.email }" required>
+		<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" maxlength="11" value="${m.phone }" required>
+		<input type="text" class="form-control" placeholder="주소" name="address" id="address" value="${m.address }">
+		<select class="form-control" name="gender" value="${m.gender }?:""" required>
+		  <option value="" disabled ${m.gender == ''? selected : '' }>성별</option>
+		  <option value="M" ${m.gender == 'M'? 'selected' :''}>남</option>
+		  <option value="F" ${m.gender == 'F'? 'selected' :''}>여</option>
 		</select>
 		<div class="form-check-inline form-check">
 			취미 : &nbsp; 
@@ -42,5 +43,14 @@ div#update-container input, div#update-container select {margin-bottom:10px;}
 		<input type="reset" class="btn btn-outline-success" value="취소">
 	</form>
 </div>
+<script>
+	<c:forEach items = "${m.hobby}" var="hobby" varStatus="vs">
+		$('input:checkbox[name="hobby"]').each(function() {
+			if (this.value == "${hobby}")
+				this.checked = true;
+	});
+	</c:forEach>
+</script>
+
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

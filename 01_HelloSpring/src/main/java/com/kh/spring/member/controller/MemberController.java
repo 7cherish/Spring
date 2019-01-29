@@ -199,13 +199,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/member/memberView.do")
-	public String memberView(String memberId) {
-			
+	public String memberView(HttpServletRequest request, String memberId) {
+		
+		Member m = memberService.selectOneMember(memberId);
+		
+		request.setAttribute("m", m);
+		
 		return "member/memberView";
 	}
 	
 	@RequestMapping("/member/memberUpdateEnd.do")
-	public String memberUpdateEnd() {
+	public String memberUpdateEnd(HttpServletRequest request) {
+		
+		
 		return "redirect:/";
 	}
 	
