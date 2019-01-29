@@ -3,6 +3,7 @@ package com.kh.spring.member.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import com.kh.spring.member.model.vo.Member;
 // memberLoggedIn 이라는 이름으로 모델에 세션속성으로 담으라는 뜻.
 // value={""} 문자열 배열로 여러 개가 올 수 있다.
 public class MemberController {
+	Logger logger = Logger.getLogger(getClass());
 
 	// 빈으로 등록되어 있다면 스프링이 자동으로 해줌.
 	// 등록되어 있지 않다면 서버가 켜지지 않는다.
@@ -42,12 +44,18 @@ public class MemberController {
 
 	@RequestMapping("/member/memberEnroll.do")
 	public String MemberEnroll() {
+		if (logger.isDebugEnabled()) {
+			logger.debug("회원등록페이지 요청!");
+		}
 		return "member/memberEnroll";
 		// 리턴할 페이지 경로
 	}
 
 	@RequestMapping("/member/memberEnrollEnd.do")
 	public String MemberEnrollEnd(Member member, HttpServletRequest req) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("회원가입 요청!");
+		}
 		System.out.println("암호화 전 : " + member.getPassword());
 		String temp = member.getPassword();
 
@@ -136,6 +144,9 @@ public class MemberController {
 									@RequestParam String password, 
 									ModelAndView mav,
 									HttpSession session) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("로그인 요청!");
+		}
 		// 아이디를 통해서 selectOne메소드 호출결과 Member 객체를 가져온다.
 		Member m = memberService.selectOneMember(memberId);
 		
@@ -172,6 +183,10 @@ public class MemberController {
 	
 	@RequestMapping("/member/memberLogout.do")
 	public String logout(SessionStatus sessionStatus) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("로그아웃 요청!");
+		}
+		
 		// 기존에서처럼 session.SetAttribute() 사용하면 session.invalidate()으로 무효화시키면 된다.
 		// @SessionAttributes 사용하면 sessionStatus.setComplete()로 무효화한다.
 		// 둘 중 하나만 사용한다.
