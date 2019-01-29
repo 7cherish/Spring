@@ -7,11 +7,22 @@
 	
 	<!-- 영속성프레임워크인 myBatis를 사용하는데 접속관련해서(sqlSession) 관리는 Mybatis가 아닌 프레임워크에서 빈으로 관리할 것이다. -->
 	<!-- #6.1. myBatis(JDBC)설정 연결 설정하기 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="realDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 		<property name="username" value="spring"/>
 		<property name="password" value="spring"/>
+	</bean>
+	
+	<!-- 데이터소스인척 하는 것 -->
+	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="realDataSource"/>
+		<property name="logFormatter">
+			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<property name="loggingType" value="MULTI_LINE"/>
+				<property name="sqlPrefix" value="[SQL]"/>
+			</bean>
+		</property>
 	</bean>
 	
 	<!-- #6.2. myBatis(JDBC)설정 : SqlSessionFactory -->

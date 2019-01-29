@@ -365,7 +365,28 @@ INSERT INTO SPRING.MEMBER VALUES ('qwerty','1234','김말년','F',30,'qwerty@nav
 INSERT INTO SPRING.MEMBER VALUES ('admin','1234','관리자','F',33,'admin@naver.com','01012345678','서울시 강남구','독서',DEFAULT);
 COMMIT;
 	
-	
+------------------------------------------------------------------
+--MEMO테이블생성
+------------------------------------------------------------------
+CREATE TABLE MEMO(
+    MEMONO NUMBER PRIMARY KEY,
+    MEMO VARCHAR2(2000),
+    PASSWORD VARCHAR2(4),
+    MEMODATE DATE DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE SEQ_MEMONO
+START WITH 1
+INCREMENT BY 1
+NOMINVALUE
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+INSERT INTO MEMO VALUES(SEQ_MEMONO.NEXTVAL, '반갑습니다. AOP', 1234, DEFAULT);
+
+SELECT * FROM MEMO;
+
 -------------------------------------------------------------------------------------------
 DemoController
 -------------------------------------------------------------------------------------------

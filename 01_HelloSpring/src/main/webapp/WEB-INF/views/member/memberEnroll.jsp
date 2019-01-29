@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+	System.out.println("view단 언제 나오나 테스트@memberEnroll.jsp");
+%>
 <fmt:requestEncoding value="UTF-8" />
 <style>
 div#enroll-container {

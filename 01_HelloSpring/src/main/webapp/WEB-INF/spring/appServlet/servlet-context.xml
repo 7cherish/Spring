@@ -60,6 +60,22 @@
 	Framework에서 중요하다. -->
 	<context:component-scan base-package="com.kh.spring" />
 	
+	<!-- #8. 로깅을 이한 interceptor 등록 -->
+	<!-- DispatcherServlet 이 Controller 를 요청하는 중간에 interceptor 호출 -->
+	<!-- 그래서 servlet-context.xml에 등록함. -->
+	<interceptors>
+		<interceptor>
+			<!-- 어떤 요청일 때 처리할건지 기술 /** => 모든요청 -->
+			<mapping path="/**"/>
+			<!-- 빈으로 등록 -->
+			<beans:bean id="loggerInterceptor" class="com.kh.spring.common.interceptor.LoggerInterceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/member/memberView.do"/>
+			<mapping path="/member/memberUpdate.do"/>
+			<beans:bean id="loginCheckInterceptor" class="com.kh.spring.common.interceptor.LoginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	
 </beans:beans>

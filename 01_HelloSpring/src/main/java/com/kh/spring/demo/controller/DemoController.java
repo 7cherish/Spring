@@ -203,7 +203,7 @@ public class DemoController {
 		// 업무로직
 		
 		
-		return "";
+		return "/";
 	}
 
 	

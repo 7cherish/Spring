@@ -198,6 +198,16 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/member/memberView.do")
+	public String memberView(String memberId) {
+			
+		return "member/memberView";
+	}
+	
+	@RequestMapping("/member/memberUpdateEnd.do")
+	public String memberUpdateEnd() {
+		return "redirect:/";
+	}
 	
 
 }
