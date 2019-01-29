@@ -1,0 +1,85 @@
+INFO  [ 2019-01-29 16:57:50 ] ContextLoader.java:270 - Root WebApplicationContext: initialization started
+INFO  [ 2019-01-29 16:57:50 ] AbstractApplicationContext.java:590 - Refreshing Root WebApplicationContext: startup date [Tue Jan 29 16:57:50 KST 2019]; root of context hierarchy
+INFO  [ 2019-01-29 16:57:50 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+INFO  [ 2019-01-29 16:57:51 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/security-context.xml]
+INFO  [ 2019-01-29 16:57:54 ] ContextLoader.java:310 - Root WebApplicationContext: initialization completed in 4685 ms
+INFO  [ 2019-01-29 16:57:55 ] FrameworkServlet.java:494 - FrameworkServlet 'appServlet': initialization started
+INFO  [ 2019-01-29 16:57:55 ] AbstractApplicationContext.java:590 - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:57:55 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:57:55 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+INFO  [ 2019-01-29 16:57:56 ] AutowiredAnnotationBeanPostProcessor.java:154 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo()
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo1.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo1(javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo2.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo2(org.springframework.ui.Model,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String[])
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo3.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo3(org.springframework.ui.Model,com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/insertDev.do],methods=[POST]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.insertDev(com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demoList.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.selectDemoList(org.springframework.ui.Model)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/deleteDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.deleteDev(java.lang.String)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/updateDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.updateDev(java.lang.String)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.kh.spring.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnroll.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnroll()
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnrollEnd.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnrollEnd(com.kh.spring.member.model.vo.Member,javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogin.do],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.kh.spring.member.controller.MemberController.MemberLogin(java.lang.String,java.lang.String,org.springframework.web.servlet.ModelAndView,javax.servlet.http.HttpSession)
+INFO  [ 2019-01-29 16:57:58 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogout.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.logout(org.springframework.web.bind.support.SessionStatus)
+INFO  [ 2019-01-29 16:57:59 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:57:55 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:57:59 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:57:55 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:57:59 ] AbstractUrlHandlerMapping.java:373 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+INFO  [ 2019-01-29 16:58:00 ] FrameworkServlet.java:509 - FrameworkServlet 'appServlet': initialization completed in 4963 ms
+DEBUG [ 2019-01-29 16:58:25 ] MemberController.java:187 - 로그아웃 요청!
+INFO  [ 2019-01-29 16:59:23 ] AbstractApplicationContext.java:993 - Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:57:55 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:59:23 ] AbstractApplicationContext.java:993 - Closing Root WebApplicationContext: startup date [Tue Jan 29 16:57:50 KST 2019]; root of context hierarchy
+INFO  [ 2019-01-29 16:59:38 ] ContextLoader.java:270 - Root WebApplicationContext: initialization started
+INFO  [ 2019-01-29 16:59:39 ] AbstractApplicationContext.java:590 - Refreshing Root WebApplicationContext: startup date [Tue Jan 29 16:59:39 KST 2019]; root of context hierarchy
+INFO  [ 2019-01-29 16:59:39 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+INFO  [ 2019-01-29 16:59:39 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/security-context.xml]
+INFO  [ 2019-01-29 16:59:42 ] ContextLoader.java:310 - Root WebApplicationContext: initialization completed in 4269 ms
+INFO  [ 2019-01-29 16:59:43 ] FrameworkServlet.java:494 - FrameworkServlet 'appServlet': initialization started
+INFO  [ 2019-01-29 16:59:43 ] AbstractApplicationContext.java:590 - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:59:43 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:59:43 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+INFO  [ 2019-01-29 16:59:44 ] AutowiredAnnotationBeanPostProcessor.java:154 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo()
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo1.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo1(javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo2.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo2(org.springframework.ui.Model,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String[])
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo3.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo3(org.springframework.ui.Model,com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/insertDev.do],methods=[POST]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.insertDev(com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demoList.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.selectDemoList(org.springframework.ui.Model)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/deleteDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.deleteDev(java.lang.String)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/updateDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.updateDev(java.lang.String)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.kh.spring.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnroll.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnroll()
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnrollEnd.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnrollEnd(com.kh.spring.member.model.vo.Member,javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogin.do],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.kh.spring.member.controller.MemberController.MemberLogin(java.lang.String,java.lang.String,org.springframework.web.servlet.ModelAndView,javax.servlet.http.HttpSession)
+INFO  [ 2019-01-29 16:59:46 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogout.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.logout(org.springframework.web.bind.support.SessionStatus)
+INFO  [ 2019-01-29 16:59:46 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:59:43 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:59:46 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:59:43 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 16:59:47 ] AbstractUrlHandlerMapping.java:373 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+INFO  [ 2019-01-29 16:59:47 ] FrameworkServlet.java:509 - FrameworkServlet 'appServlet': initialization completed in 4546 ms
+DEBUG [ 2019-01-29 17:00:21 ] MemberController.java:148 - 로그인 요청!
+INFO  [ 2019-01-29 17:14:18 ] AbstractApplicationContext.java:993 - Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 16:59:43 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 17:14:18 ] AbstractApplicationContext.java:993 - Closing Root WebApplicationContext: startup date [Tue Jan 29 16:59:39 KST 2019]; root of context hierarchy
+INFO  [ 2019-01-29 17:14:27 ] ContextLoader.java:270 - Root WebApplicationContext: initialization started
+INFO  [ 2019-01-29 17:14:27 ] AbstractApplicationContext.java:590 - Refreshing Root WebApplicationContext: startup date [Tue Jan 29 17:14:27 KST 2019]; root of context hierarchy
+INFO  [ 2019-01-29 17:14:28 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+INFO  [ 2019-01-29 17:14:28 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/security-context.xml]
+INFO  [ 2019-01-29 17:14:32 ] ContextLoader.java:310 - Root WebApplicationContext: initialization completed in 5088 ms
+INFO  [ 2019-01-29 17:14:33 ] FrameworkServlet.java:494 - FrameworkServlet 'appServlet': initialization started
+INFO  [ 2019-01-29 17:14:33 ] AbstractApplicationContext.java:590 - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 17:14:33 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 17:14:33 ] XmlBeanDefinitionReader.java:316 - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+INFO  [ 2019-01-29 17:14:36 ] AutowiredAnnotationBeanPostProcessor.java:154 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo()
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo1.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo1(javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo2.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo2(org.springframework.ui.Model,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String[])
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demo3.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo3(org.springframework.ui.Model,com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/insertDev.do],methods=[POST]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.insertDev(com.kh.spring.demo.model.vo.Dev)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/demoList.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.selectDemoList(org.springframework.ui.Model)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/deleteDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.deleteDev(java.lang.String)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/demo/updateDev.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.updateDev(java.lang.String)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.kh.spring.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnroll.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnroll()
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberEnrollEnd.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.MemberEnrollEnd(com.kh.spring.member.model.vo.Member,javax.servlet.http.HttpServletRequest)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogin.do],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.kh.spring.member.controller.MemberController.MemberLogin(java.lang.String,java.lang.String,org.springframework.web.servlet.ModelAndView,javax.servlet.http.HttpSession)
+INFO  [ 2019-01-29 17:14:38 ] AbstractHandlerMethodMapping.java:547 - Mapped "{[/member/memberLogout.do]}" onto public java.lang.String com.kh.spring.member.controller.MemberController.logout(org.springframework.web.bind.support.SessionStatus)
+INFO  [ 2019-01-29 17:14:38 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 17:14:33 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 17:14:39 ] RequestMappingHandlerAdapter.java:574 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 29 17:14:33 KST 2019]; parent: Root WebApplicationContext
+INFO  [ 2019-01-29 17:14:39 ] AbstractUrlHandlerMapping.java:373 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+INFO  [ 2019-01-29 17:14:40 ] FrameworkServlet.java:509 - FrameworkServlet 'appServlet': initialization completed in 6868 ms
+DEBUG [ 2019-01-29 17:14:40 ] MemberController.java:187 - 로그아웃 요청!
