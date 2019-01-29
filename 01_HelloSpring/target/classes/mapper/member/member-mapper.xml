@@ -21,5 +21,8 @@
    <select id="selectOneMember" parameterType="string" resultMap="memberMap">
    		SELECT * FROM MEMBER WHERE MEMBERID = #{memberId}
    </select>
+   <update id="updateMember">
+   	UPDATE MEMBER SET MEMBERNAME = #{memberName}, AGE = #{age}, EMAIL = #{email}, PHONE = #{phone},  ADDRESS = #{address}, GENDER = #{gender}, HOBBY = #{hobby, typeHandler=com.kh.spring.common.typehandler.StringArrayTypeHandler} WHERE MEMBERID = #{memberId}
+   </update>
    
 </mapper>

@@ -25,12 +25,16 @@ div#memo-container{width:60%; margin:0 auto;text-align:center;}
 	      <th>날짜</th>
 	      <th>삭제</th>
 	    </tr>
-	    <tr>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-		</tr>
+	    <c:if test="${not empty list}">
+	    	<c:forEach items="${list }" var="list">
+			    <tr>
+			      <td>${list.memoNo }</td>
+			      <td>${list.memo }</td>
+			      <td>${list.memoDate }</td>
+			      <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+				</tr>
+	    	</c:forEach>
+	    </c:if>
 	</table>
 </div>
 <form name="memoDelFrm" action="deleteMemo.do" method="post">

@@ -310,6 +310,41 @@ log4j.xml (src/main/resources 하위)
   Log4J를 사용하면 무슨 Sql문을 사용하는지 무슨 데이터가 parameter로 넘어오는지 DB를 갔다 왔을때 어떤 데이터를 불러오는지를 Consol창을 통해 한 번에 알 수 있다.
 
 
+* Appender : 전달된 로그를 어디에 출력할 지 결정 (콘솔출력, 파일기록, DB저장)
+
+* Logger / root : 출력할 메세지를 Appender 에 전달한다. 로그주체
+	- name 속성 : 로그주체. 패키지작성
+	- additivity 속성 : 로그가 상위로 전달할 지 여부. 기본값 true
+	- appender-ref 자식태그 : ref 속성값으로 appender 태그 name 값을 지정한다.
+	- level 자식태그 : 로그레벨을 설정한다.
+					   설정된 값 이상의 우선순위 일 경우, 로깅출력
+					   * trace < debug < info < warn < error < fatal
+					   
+					   fatal : 아주 심각한 에러
+					   error : 요청처리중 에러가 발생한 경우
+					   warn : 프로그램실행에는 당장 문제가 없지만, 문제소지 있음
+					   info : 상태변경과 같은 정보성 메세지
+					   debug : 개발모드
+					   trace : 디버그레벨을 조금 더 세분화하여 관리하기 위한 레벨
+
+* appender 태그
+	- 1. appender => Logger 출력을 처리할 객체
+		* org.apache.log4j.ConsoleAppender
+		* org.apache.log4j.DailyRollingFileAppender
+
+	- 2. param : Tagget => Appender 전달된 로그를 어디에 출력할 지 결정 (콘솔출력, 파일기록, DB저장)
+	
+	- 3. layout => Layout 로그를 어떤 형식으로 출력할지 결정한다.
+	
+* Layout의 종류
+	- DateLayout
+	- HTMLLayout
+	- PatternLayout (디버깅에 적합)
+	- SimpleLayout
+	- XMLLayout 
+	
+
+
 
 -------------------------------------------------------------------------------------------
 Oracle SQL Developer 설정

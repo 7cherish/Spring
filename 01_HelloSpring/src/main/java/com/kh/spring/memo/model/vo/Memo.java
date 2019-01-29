@@ -10,29 +10,29 @@ public class Memo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int memono;
+	private int memoNo;
 	private String memo;
 	private String password;
-	private Date memodate;
+	private Date memoDate;
 	
 	public Memo() {
 		super();
 	}
 
-	public Memo(int memono, String memo, String password, Date memodate) {
+	public Memo(int memoNo, String memo, String password, Date memoDate) {
 		super();
-		this.memono = memono;
+		this.memoNo = memoNo;
 		this.memo = memo;
 		this.password = password;
-		this.memodate = memodate;
+		this.memoDate = memoDate;
 	}
 
-	public int getMemono() {
-		return memono;
+	public int getMemoNo() {
+		return memoNo;
 	}
 
-	public void setMemono(int memono) {
-		this.memono = memono;
+	public void setMemoNo(int memoNo) {
+		this.memoNo = memoNo;
 	}
 
 	public String getMemo() {
@@ -51,12 +51,12 @@ public class Memo implements Serializable{
 		this.password = password;
 	}
 
-	public Date getMemodate() {
-		return memodate;
+	public Date getMemoDate() {
+		return memoDate;
 	}
 
-	public void setMemodate(Date memodate) {
-		this.memodate = memodate;
+	public void setMemoDate(Date memoDate) {
+		this.memoDate = memoDate;
 	}
 
 	public static long getSerialversionuid() {
@@ -65,7 +65,7 @@ public class Memo implements Serializable{
 
 	@Override
 	public String toString() {
-		return "[memono=" + memono + ", memo=" + memo + ", password=" + password + ", memodate=" + memodate + "]";
+		return "[memoNo=" + memoNo + ", memo=" + memo + ", password=" + password + ", memoDate=" + memoDate + "]";
 	}
 	
 	

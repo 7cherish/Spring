@@ -1,5 +1,7 @@
 package com.kh.spring.member.model.service;
 
+import org.springframework.ui.Model;
+
 import com.kh.spring.member.model.vo.Member;
 
 public interface MemberService {
@@ -7,5 +9,8 @@ public interface MemberService {
 	int insertMember(Member m);
 
 	Member selectOneMember(String memberId);
+
+	int updateMember(Member m);
+
 
 }

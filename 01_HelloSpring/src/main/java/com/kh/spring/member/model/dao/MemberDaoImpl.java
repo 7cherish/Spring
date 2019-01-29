@@ -3,6 +3,7 @@ package com.kh.spring.member.model.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.kh.spring.member.model.vo.Member;
 
@@ -24,6 +25,13 @@ public class MemberDaoImpl implements MemberDao {
 		System.out.println("memberId@selectMember@MemberDaoImpl = " + memberId);
 		Member m = (Member)sqlSession.selectOne("member.selectOneMember", memberId);
 		return m;
+	}
+
+	@Override
+	public int updateMember(Member m) {
+		System.out.println("m@updateMember@MemberDaoImpl = " + m);
+		int result = sqlSession.update("member.updateMember", m);
+		return result;
 	}
 
 }
