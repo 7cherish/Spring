@@ -30,6 +30,17 @@
 
 	IOC와 DI는 따라 다니는 개념이다. 
 	같은 맥락에서 이해하면 좋다.
+	
+	------------------------------------------------------------------------
+	의존성 주입이란 사용자가 직접 new 키워드를 사용하여 객체를 생성하지 않고, 
+	외부( 컨테이너 )에서 생성된 객체를 주입 받는 방식을 말한다.
+	
+	스프링에서는 이와 같이 의존성 주입을 통해 객체 간의 의존성 문제를 해결하며, 
+	객체의 생성과 소멸을 개발자가 관리하지 않고 스프링에서 관리하는데, 
+	이러한 현상을 제어 역전 ( IoC, Inversion of Control )이라 한다.
+	--------------------------------------------------------------------------
+
+
 
 - AOP (Aspect Oriented Programming) 관점지향프로그래밍
 	공통된 업무들을 별도로 빼서 처리하는 것이다. 
@@ -614,3 +625,47 @@ bootstrap 부트스트랩
 	=> .form-check-label
 
 	* radio / checkbox 는 div.form-check.form-check-inline 으로 감싸야 한다.
+	
+	
+	
+	
+	
+-------------------------------------------------------------------------------------------
+Interceptor
+-------------------------------------------------------------------------------------------
+인터셉터 ( Interceptor )
+	Interceptor란 컨트롤러에 들어오는 요청 HttpRequest와 컨트롤러가 응답하는 HttpResponse를 가로채는 역할을 한다.
+	인터셉터는 관리자만 접근할 수 있는 관리자 페이지에 접근하기 전에 관리자 인증을 하는 용도로 활용될 수 있다.
+
+Interceptor를 구현하는 방법 
+	1. HandlerInterceptor 인터페이스를 구현하는 방법
+	2. HandlerInterceptorAdapter 클래스를 상속 받는 방법
+
+	HandlerInterceptorAdapter 클래스를 상속 받으면, 
+	postHandle() , afterCompletion() 메서드가 구현되어 있으므로 필요한 메서드만 오버라이딩 하면 된다.
+
+
+
+1.  preHandle() 메서드는  컨트롤러가 호출되기 전에 실행된다.
+	매개변수 obj는 Dispatcher의 HandlerMapping 이 찾아준 컨트롤러의 메서드를 참조할 수 있는 HandlerMethod 객체이다.
+
+2.  postHandle() 메서드는 컨트롤러가 실행된 후에 호출된다.
+
+3.  afterComplete() 은 뷰에서 최종 결과가 생성하는 일을 포함한 모든 일이 완료 되었을 때 실행된다.
+	각 메서드의 반환값이 true이면 핸들러의 다음 체인이 실행되지만 false이면 중단하고 남은 인터셉터와  컨트롤러가 실행되지 않는다.
+	
+	
+	
+
+	
+Filter와 Interceptor의 차이
+
+1. 호출 시점
+Filter는 DispatcherServlet이 실행되기 전, Interceptor는 DispatcherServlet이 실행된 후
+
+2. 설정 위치
+Filter는 web.xml , Interceptor는 spring-servlet.xml
+
+3. 구현 방식
+Filter는 web.xml에서 설정을 하면 구현이 가능하지만, Interceptor는 설정은 물론 메서드 구현이 필요하다.
+
