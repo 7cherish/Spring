@@ -3,14 +3,30 @@ package com.kh.spring.common.aop;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
-public class LoggerAspect {
+@Component
+@Aspect
+public class LoggerAspect2 {
 	
 	Logger logger = Logger.getLogger(getClass());
 	
+	@Pointcut("execution(* com.kh.spring.memo..*(..))")
+	public void pointCutForAll() {
+		
+	}
+	
 	/**
 	 * AroundAdvice : 주업무 앞 뒤에서 실행된다.
+	 * 
+	 * Open Declaration org.aspectj.lang.annotation.Around
+	 * @Target(value={METHOD}) 
+	 * @Retention(value=RUNTIME)
 	 */
+	@Around("pointCutForAll()")
 	public Object loggerAdvice(ProceedingJoinPoint joinPoint) throws Throwable{
 		// 시그니처 가져오기. 실제로 실행될 메소드를 담고 있는 클래스이다.
 		Signature signature = joinPoint.getSignature();

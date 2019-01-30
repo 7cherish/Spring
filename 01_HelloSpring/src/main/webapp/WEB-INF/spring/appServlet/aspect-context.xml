@@ -7,27 +7,28 @@
 	<!-- #9.2 aop관련태그 작성 -->
 	<!-- ========== 선언적 aop 시작 ========== -->
 	<!-- LoggerAspect 빈등록 (서버구동시 자동 등록) -->
-	<bean id="loggerAspect" class="com.kh.spring.common.aop.LoggerAspect" /> 
+<!-- 	<bean id="loggerAspect" class="com.kh.spring.common.aop.LoggerAspect" /> 
 	<aop:config>
-		<!-- ref는 bean의 id값 -->
-		<!-- id값을 지정하지 않으면 에러발생 -->
+		ref는 bean의 id값
+		id값을 지정하지 않으면 에러발생
 		<aop:aspect id="loggerAspect" ref="loggerAspect">
-			<!-- expression : joinPoint 선점 룰 -->
-			<!-- 이 패키지 밑에 있는 모든 클래스와 메소드, 파라미터는 있거나 없거나 모두 다(모든 리턴타입) -->
-			<!-- <aop:pointcut expression="execution(* com.kh.spring.memo..*(..))" id="pointCutForAll"/> -->
+			expression : joinPoint 선점 룰
+			이 패키지 밑에 있는 모든 클래스와 메소드, 파라미터는 있거나 없거나 모두 다(모든 리턴타입)
+			<aop:pointcut expression="execution(* com.kh.spring.memo..*(..))" id="pointCutForAll"/>
 			
-			<!-- 컨트롤러에 메소드를 정했음 -->
+			컨트롤러에 메소드를 정했음
 			<aop:pointcut expression="execution(* com.kh.spring.memo..MemoController.memo(..))" id="pointCutForAll"/>
 			
-			<!-- 클래스에 실제로 있는 메소드를 적는다 -->
-			<!-- pointcut-ref 는 pointcut의 id값 -->
+			클래스에 실제로 있는 메소드를 적는다
+			pointcut-ref 는 pointcut의 id값
 			<aop:around method="loggerAdvice" pointcut-ref="pointCutForAll"/>
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 	<!-- ========== 선언적 aop 끝 ========== -->
 	
 	
 	<!-- ========== 프로그래밍적 aop 시작(@ 사용) ========== -->
+	<aop:aspectj-autoproxy/>
 	<!-- ========== 프로그래밍적 aop 끝(@ 사용) ========== -->
 
 </beans>
