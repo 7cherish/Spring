@@ -23,7 +23,7 @@ public class MemoController {
 	public ModelAndView memo(ModelAndView mav) {
 		
 		if (logger.isDebugEnabled()) {
-			logger.debug("메모 요청!");
+			logger.debug("메모페이지 요청!");
 		}
 		mav.setViewName("/memo/memo");
 		
@@ -36,6 +36,10 @@ public class MemoController {
 	
 	@RequestMapping("/memo/insertMemo.do")
 	public ModelAndView insertMemo(Memo memo, ModelAndView mav) {
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("메모저장 요청!");
+		}
 		
 		int result = memoService.insertMemo(memo);
 		
