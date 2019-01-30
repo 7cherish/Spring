@@ -43,7 +43,11 @@
 			2. servlet-context : 프로그램당 여러 개 -->
 			<!-- root-context 가 더 큰 기능 servlet-context -->
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value>
+				/WEB-INF/spring/appServlet/servlet-context.xml
+				<!-- #9.1 aop를 위한 설정파일 추가 -->
+				/WEB-INF/spring/appServlet/aspect-context.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
