@@ -1,7 +1,5 @@
 package com.kh.spring.member.model.dao;
 
-import org.springframework.ui.Model;
-
 import com.kh.spring.member.model.vo.Member;
 
 public interface MemberDao {

@@ -2,7 +2,6 @@ package com.kh.spring.member.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.kh.spring.member.model.dao.MemberDao;
 import com.kh.spring.member.model.vo.Member;
@@ -21,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member selectOneMember(String memberId) {
-		
+
 		return memberDao.selectMember(memberId);
 	}
 
