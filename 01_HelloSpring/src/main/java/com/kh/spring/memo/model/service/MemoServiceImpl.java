@@ -1,10 +1,10 @@
 package com.kh.spring.memo.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.spring.memo.model.dao.MemoDao;
 import com.kh.spring.memo.model.vo.Memo;
@@ -24,6 +24,13 @@ public class MemoServiceImpl implements MemoService {
 	public int insertMemo(Memo memo) {
 		return memoDao.insertMemo(memo);
 	}
+
+	@Override
+	public int deleteMemo(Map<String, String> map) {
+		return memoDao.deleteMemo(map);
+	}
+
+
 
 
 }
