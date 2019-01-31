@@ -13,4 +13,8 @@ public interface MemoService {
 
 	int insertMemo(Memo memo);
 
+	int deleteMemo(Map<String, String> map);
+
+
+
 }

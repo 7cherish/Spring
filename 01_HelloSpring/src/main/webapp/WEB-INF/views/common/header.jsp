@@ -104,6 +104,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.request.contextPath}/memo/memo.do">메모</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="${pageContext.request.contextPath}/board/boardList.do">게시판</a>
+						</li>
 					</ul>
 					<c:if test="${memberLoggedIn==null }">
 						<!-- 로그인,회원가입 버튼 -->

@@ -8,4 +8,12 @@
 	<select id="selectList" resultType="memo">
 		SELECT * FROM MEMO ORDER BY 1
 	</select>
+
+	<select id="selectOne" resultType="memo">
+		SELECT * FROM MEMO WHERE memono = #{memoNo}
+	</select>
+
+	<delete id="deleteMemo">
+		DELETE FROM MEMO WHERE memono = #{no} and password = #{password} 
+	</delete>
 </mapper>

@@ -31,7 +31,7 @@ div#memo-container{width:60%; margin:0 auto;text-align:center;}
 			      <td>${list.memoNo }</td>
 			      <td>${list.memo }</td>
 			      <td>${list.memoDate }</td>
-			      <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+			      <td><button type="button" class="btn btn-outline-danger" onclick="deleteMemo('${list.memoNo}')">삭제</button></td>
 				</tr>
 	    	</c:forEach>
 	    </c:if>
@@ -41,4 +41,17 @@ div#memo-container{width:60%; margin:0 auto;text-align:center;}
 	<input type="hidden" name="no" />
 	<input type="hidden" name="password" />
 </form>
+
+<script>
+	function deleteMemo(no) {
+		var frm = document.memoDelFrm;
+		frm.no.value = no;
+
+		var password = prompt("비밀번호를 입력하세요.");
+		// if(password.trim().length == 0) return;
+		
+		frm.password.value = password;
+		frm.submit();
+	}
+</script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
