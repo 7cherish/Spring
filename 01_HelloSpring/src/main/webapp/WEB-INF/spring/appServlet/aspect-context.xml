@@ -30,5 +30,10 @@
 	<!-- ========== 프로그래밍적 aop 시작(@ 사용) ========== -->
 	<aop:aspectj-autoproxy/>
 	<!-- ========== 프로그래밍적 aop 끝(@ 사용) ========== -->
+	
+	<!-- #11.2 트랜잭션처리를 위해서 특정클래스/특정메소드를 aop pointcut으로 등록함 (어노테이션 방식)-->
+<!-- 	<aop:config>
+	  <aop:pointcut id="serviceMethod" expression="execution(* com.kh.spring..*ServiceImpl.*(..))" />
+    </aop:config> -->
 
 </beans>

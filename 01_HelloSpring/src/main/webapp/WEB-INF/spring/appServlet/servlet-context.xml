@@ -73,9 +73,17 @@
 		<interceptor>
 			<mapping path="/member/memberView.do"/>
 			<mapping path="/member/memberUpdate.do"/>
+			<mapping path="/board/**/*.do"/>
+			<!-- #a 2019-02-01 추가 -->
+			<!-- 스프링 3.2버전부터 exclude-mapping 지원 : 여기서 제외할 것 지정-->
+			<exclude-mapping path="/board/boardList.do"/>
 			<beans:bean id="loginCheckInterceptor" class="com.kh.spring.common.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
+	<!-- #10.1 파일업로드를 처리할 Resolver클래스 빈등록(빈이름 주의) -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">   
+		<beans:property name="maxUploadSize" value="10485760" /> <!-- max 파일용량은 10MB이다. -->
+	</beans:bean>
 	
 	
 </beans:beans>
